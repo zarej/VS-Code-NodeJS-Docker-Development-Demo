@@ -6,10 +6,14 @@ docker build -t myapp .
 ```
  2. Run container with:
 ```bash
- docker run -d -p 3000:3000 -p 9229:9229  -v $(pwd):/usr/src/app myapp
+ docker run -d -p 3000:3000 -p 9229:9229 --name demoapp -v $(pwd):/usr/src/app myapp
 ```
  3. Go to browser url: http://localhost:3000
  4. In VS Code just press F5 to attach to container's nodejs app debug port 9229
+ 5. Install modules with:
+ ```bash
+ docker exec demoapp npm i -S <module_name>
+ ```
 
 NOTES:
 - This project is already setup for debug inside docker you need just to run debug in VS Code with F5
